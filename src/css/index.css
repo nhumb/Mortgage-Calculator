@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #314659;
+}
+::-moz-selection { background: #ff0dbf; color: white; }
+::selection { background: #ff0dbf; color: white; }
+h1 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+input {
+  color: #314659;
+}
+p strong { 
+  font-weight: 600;
+}
+input[type="number"] {
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  width: 50%;
+}
+input[type="number"]:focus, input[type="number"]:active {
+  border-color: #9d9d9d;
+}
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: rgb(91,134,229);
+  background: linear-gradient(90deg, rgba(91,134,229,1) 0%, rgba(54,209,220,1) 100%);
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+    border: solid 2px #314659;
+  cursor: pointer;
+}
+input[type='range']::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: solid 2px #314659;
+  cursor: pointer;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+.App {
+  width: 100%;
+  max-width: 900px;
+}
+header {
+  padding: 30px 15px;  
+  margin: 20px 0;
+  background: rgb(91,134,229);
+  background: linear-gradient(90deg, rgba(91,134,229,1) 0%, rgba(54,209,220,1) 100%);
+  color: white;
+  border-radius: 4px;
+}
+
+.inputGroup {
+  padding: 15px;
+}
+.inputGroup > label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rangeSlider {
+ margin: 10px 0 5px 0;
+}
+.rangeSlider__key {
+  display: flex;
+  justify-content: space-between;  
+}
+.rangeSlider__key span {
+  font-size: 10px;
+  color: #a1a1a1;
+}
+
+.textInput span {
+  margin-left: 10px;
+  color: #a1a1a1;
+}
+
+.radioGroup {
+  display: flex;
+  justify-content: flex-start;
+}
+.radioGroup label {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 5px 0;
+  text-transform: capitalize;
+}
+.radioGroup label input {
+  margin-right: 5px;
+  display: inline-block
+}
+
+.results {
+  width: 100%;
+  background: rgb(91,134,229);
+  background: linear-gradient(90deg, rgba(91,134,229,1) 0%, rgba(54,209,220,1) 100%);
+  color: white;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: 10px 0;
+  text-transform: capitalize;
+  margin: 15px 0 30px 0;
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .inputGroupWrapper {
+    width: 50%;
+  }
+
+  .inputGroup:hover span {
+    color: #808080;
+  }
+  .inputGroup:hover input[type="number"] {
+    border-color: #cacaca;
+  }
+  .inputGroup:hover input[type="number"]:focus, .inputGroup:hover input[type="number"]:active {
+    border-color: #9d9d9d;
+  }
+  .inputGroup:hover input[type="range"] {
+    background-color: #cacaca;
+  }
+
+}
