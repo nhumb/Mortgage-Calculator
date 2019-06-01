@@ -1,16 +1,7 @@
 import React from 'react';
 import InputSlider from './InputSlider';
 import RadioButtonSet from './RadioButtonSet';
-
-// p = principal, i = interest rate, t = term
-function monthlyPaymentCalc(p, i, t, f) {
-    // annual interest rate
-    let air = i/100/f;
-    // number of payments
-    let nop = t*f;
-    
-    return Math.floor(p * ( (air*Math.pow((1+air),nop)) / (Math.pow((1+air),nop) - 1) ) ); 
-}
+import Results from './Results';
 
 class Calculator extends React.Component {
     constructor(props) {
@@ -34,11 +25,6 @@ class Calculator extends React.Component {
     }
   
     render () {
-        let mortgageAmount = this.state.propertyValue - this.state.depositValue;
-        let interest = this.state.interestRate;
-        let term = this.state.mortgageTerm;
-        let frequency = this.state.paymentFrequency === "monthly" ? 12 : this.state.paymentFrequency === "fortnightly" ? 26 : 52;
-        let result = this.state.mortgageType === "repayment" ? <p><strong>{this.state.paymentFrequency} Repayment:</strong> £{monthlyPaymentCalc(mortgageAmount,interest,term, frequency)}</p> : <p><strong>{this.state.paymentFrequency} Interest Only Payment:</strong> £{Math.floor(interest/frequency/100 * mortgageAmount)}</p>;
 
         return (
             <form>
@@ -50,7 +36,7 @@ class Calculator extends React.Component {
                     min={50000} 
                     max={1500000} 
                     step={10000}
-                    unit="pounds"
+                    unit="NZD"
                 />
 
                 <InputSlider
@@ -61,7 +47,7 @@ class Calculator extends React.Component {
                     min={10000} 
                     max={1000000} 
                     step={10000}
-                    unit="pounds"
+                    unit="NZD"
                 />
 
                 <InputSlider
@@ -102,9 +88,13 @@ class Calculator extends React.Component {
                     handleChange={this.updateValues}
                 />
 
-                <div className="results">
-                    {result}
-                </div>
+                <Results
+                    mortgageAmount = {this.state.propertyValue - this.state.depositValue}
+                    interest = {this.state.interestRate}
+                    term = {this.state.mortgageTerm}
+                    frequency = {this.state.paymentFrequency}
+                    mortgageType={this.state.mortgageType}
+                />
 
             </form>
         );

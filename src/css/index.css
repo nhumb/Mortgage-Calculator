@@ -65,11 +65,10 @@ input[type='range']::-moz-range-thumb {
 }
 header {
   padding: 30px 15px;  
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   background: rgb(91,134,229);
   background: linear-gradient(90deg, rgba(91,134,229,1) 0%, rgba(54,209,220,1) 100%);
   color: white;
-  border-radius: 4px;
 }
 
 .inputGroup {
@@ -127,7 +126,6 @@ header {
   padding: 10px 0;
   text-transform: capitalize;
   margin: 15px 0 30px 0;
-  border-radius: 4px;
 }
 
 @media (min-width: 768px) {
@@ -135,6 +133,12 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  header {
+    margin: 20px 0;
+  }
+  header, .results {
+    border-radius: 4px;
   }
   .inputGroupWrapper {
     width: 50%;
