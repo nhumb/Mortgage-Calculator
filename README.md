@@ -3,7 +3,7 @@
 Calculate repayment & interest only mortgage amounts, and weekly, fortnightly, monthly payments.
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live demo [here](https://practical-stonebraker-462cc9.netlify.com/).
 
 ### Available Scripts
 
