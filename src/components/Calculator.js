@@ -6,16 +6,30 @@ import Results from './Results';
 class Calculator extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            propertyValue: 500000,
-            depositValue: 100000,
-            mortgageTerm: 30,
-            interestRate: 5,
-            mortgageType: "repayment",
-            paymentFrequency : "monthly"
-            
-        }
         this.updateValues = this.updateValues.bind(this);
+    }
+    
+    componentWillMount() {
+        let localProps = localStorage.getItem('props');
+        if (localProps) {
+            this.setState(JSON.parse(localProps));
+        } else {
+            let defaultProps = {
+                propertyValue: 500000,
+                depositValue: 100000,
+                mortgageTerm: 30,
+                interestRate: 5,
+                mortgageType: "repayment",
+                paymentFrequency : "monthly"
+            };
+            this.setState(defaultProps);
+            localStorage.setItem('props', JSON.stringify(defaultProps));
+        }
+    }
+
+    componentDidUpdate() {
+        let currentState = this.state;
+        localStorage.setItem('props', JSON.stringify(currentState));
     }
 
     updateValues(prop,val) {
